@@ -1,6 +1,6 @@
 {% set name = "webp" %}
-{% set version = "1.0.2" %}
-{% set sha256 = "3d47b48c40ed6476e8047b2ddb81d93835e0ca1b8d3e8c679afbb3004dd564b1" %}
+{% set version = "1.0.3" %}
+{% set sha256 = "e20a07865c8697bba00aebccc6f54912d6bc333bb4d604e6b07491c1a226b34f" %}
 
 package:
   name: lib{{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libwebp
     - {{ pin_subpackage('libwebp', max_pin='x.x') }}
