@@ -14,8 +14,6 @@ jpeg:
 - '9'
 libpng:
 - '1.6'
-libtiff:
-- 4.1.0
 macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
@@ -25,5 +23,3 @@ pin_run_as_build:
     max_pin: x
   libpng:
     max_pin: x.x
-  libtiff:
-    max_pin: x

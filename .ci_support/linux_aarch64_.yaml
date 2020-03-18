@@ -9,7 +9,7 @@ cdt_arch:
 cdt_name:
 - cos7
 channel_sources:
-- conda-forge,c4aarch64,defaults
+- conda-forge
 channel_targets:
 - conda-forge main
 docker_image:
@@ -20,12 +20,8 @@ jpeg:
 - '9'
 libpng:
 - '1.6'
-libtiff:
-- 4.1.0
 pin_run_as_build:
   jpeg:
     max_pin: x
   libpng:
     max_pin: x.x
-  libtiff:
-    max_pin: x
