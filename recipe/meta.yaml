@@ -66,10 +66,10 @@ outputs:
       - share/**/webp*.1  # [not win]
       - share/**/*webp.1  # [not win]
       - lib/libwebp*  # [not win]
-      - Library/include/webp/ # [win]
-      - Library/lib/libwebp* # [win]
-      - Library/bin/*webp.exe # [win]
-      - Library/bin/libwebp* # [win]
+      - Library/include/webp/  # [win]
+      - Library/lib/libwebp*  # [win]
+      - Library/bin/*webp.exe  # [win]
+      - Library/bin/libwebp*  # [win]
     test:
       commands:
         - test -f $PREFIX/lib/libwebp.a  # [not win]
