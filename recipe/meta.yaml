@@ -1,7 +1,7 @@
 {% set version = "1.1.0" %}
 
 package:
-  name: libwebp
+  name: webp_split_recipe
   version: {{ version }}
 
 source:
@@ -9,25 +9,7 @@ source:
   sha256: 98a052268cc4d5ece27f76572a7f50293f439c17a98e67c4ea0c7ed6f50ef043
 
 build:
-  number: 2
-  run_exports:  # [win]
-    # https://abi-laboratory.pro/?view=timeline&l=libwebp  # [win]
-    - {{ pin_subpackage('libwebp', max_pin='x.x') }}  # [win]
-
-requirements:
-  build:
-    - {{ compiler('c') }}
-    - make  # [not win]
-  host:
-    - jpeg  # [not win]
-    - libpng  # [not win]
-    - libtiff  # [not win]
-    - giflib  # [not win]
-  run:
-    - jpeg  # [not win]
-    - libpng  # [not win]
-    - libtiff  # [not win]
-    - giflib  # [not win]
+  number: 3
 
 test:
   source_files:
@@ -71,6 +53,17 @@ outputs:  # [not win]
       run_exports:  # [not win]
         # https://abi-laboratory.pro/?view=timeline&l=libwebp  # [not win]
         - {{ pin_subpackage('libwebp-base', max_pin='x.x') }}  # [not win]
+    requirements:  # [not win]
+      build:  # [not win]
+        - {{ compiler('c') }}  # [not win]
+        - make  # [not win]
+      host:  # [not win]
+        - jpeg  # [not win]
+        - libpng  # [not win]
+        - libtiff  # [not win]
+        - giflib  # [not win]
+      run_constrained:  # [not win]
+        - {{ pin_subpackage('libwebp', min_pin='x.x', max_pin='x.x') }}  # [not win]
     files:  # [not win]
       - include/  # [not win]
       - share/  # [not win]
