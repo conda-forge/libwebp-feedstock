@@ -11,28 +11,8 @@ source:
 build:
   number: 3
 
-test:
-  source_files:
-    - examples/test.webp
-    
-  commands:
-    - test -f $PREFIX/bin/cwebp  # [not win]
-    - test -f $PREFIX/bin/dwebp  # [not win]
-    - dwebp examples/test.webp  # [not win]
-    - if not exist %LIBRARY_LIB%\\libwebp.lib exit 1  # [win]
-    - if not exist %LIBRARY_LIB%\\libwebpdemux.lib exit 1  # [win]
-    - if not exist %LIBRARY_LIB%\\libwebpdecoder.lib exit 1  # [win]
-    - if not exist %LIBRARY_BIN%\\libwebp.dll exit 1  # [win]
-    - if not exist %LIBRARY_BIN%\\libwebpdemux.dll exit 1  # [win]
-    - if not exist %LIBRARY_BIN%\\libwebpdecoder.dll exit 1  # [win]
-    - if not exist %LIBRARY_BIN%\\cwebp.exe exit 1  # [win]
-    - if not exist %LIBRARY_BIN%\\dwebp.exe exit 1  # [win]
-    - if not exist %LIBRARY_INC%\\webp\\decode.h exit 1  # [win]
-    - if not exist %LIBRARY_INC%\\webp\\encode.h exit 1  # [win]
-    - if not exist %LIBRARY_INC%\\webp\\types.h exit 1  # [win]
-    - dwebp examples\\test.webp  # [win]
-
 outputs:  # [not win]
+
   - name: libwebp  # [not win]
     build:  # [not win]
       run_exports:  # [not win]
@@ -43,6 +23,14 @@ outputs:  # [not win]
     requirements:  # [not win]
       run:  # [not win]
         - {{ pin_subpackage('libwebp-base', exact=True) }}  # [not win]
+    test:
+      source_files:
+        - examples/test.webp
+      commands:
+        - test -f $PREFIX/bin/cwebp  # [not win]
+        - test -f $PREFIX/bin/dwebp  # [not win]
+        - dwebp examples/test.webp  # [not win]
+        - dwebp examples\\test.webp  # [win]
 
   - name: libwebp-base  # [not win]
     build:  # [not win]
@@ -72,6 +60,17 @@ outputs:  # [not win]
         - test -f $PREFIX/include/webp/decode.h  # [not win]
         - test -f $PREFIX/include/webp/encode.h  # [not win]
         - test -f $PREFIX/include/webp/types.h  # [not win]
+        - if not exist %LIBRARY_LIB%\\libwebp.lib exit 1  # [win]
+        - if not exist %LIBRARY_LIB%\\libwebpdemux.lib exit 1  # [win]
+        - if not exist %LIBRARY_LIB%\\libwebpdecoder.lib exit 1  # [win]
+        - if not exist %LIBRARY_BIN%\\libwebp.dll exit 1  # [win]
+        - if not exist %LIBRARY_BIN%\\libwebpdemux.dll exit 1  # [win]
+        - if not exist %LIBRARY_BIN%\\libwebpdecoder.dll exit 1  # [win]
+        - if not exist %LIBRARY_BIN%\\cwebp.exe exit 1  # [win]
+        - if not exist %LIBRARY_BIN%\\dwebp.exe exit 1  # [win]
+        - if not exist %LIBRARY_INC%\\webp\\decode.h exit 1  # [win]
+        - if not exist %LIBRARY_INC%\\webp\\encode.h exit 1  # [win]
+        - if not exist %LIBRARY_INC%\\webp\\types.h exit 1  # [win]
 
 about:
   home: https://developers.google.com/speed/webp
