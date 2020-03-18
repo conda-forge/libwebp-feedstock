@@ -33,7 +33,7 @@ outputs:
         # https://abi-laboratory.pro/?view=timeline&l=libwebp
         - {{ pin_subpackage('libwebp-base', max_pin='x.x') }}
     files:  # [not win]
-      - bin/  # [not win]
+      - bin/*webp  # [not win]
     requirements:
       run:
         - {{ pin_subpackage('libwebp-base', exact=True) }}
@@ -62,9 +62,10 @@ outputs:
       run_constrained:
         - {{ pin_subpackage('libwebp', min_pin='x.x', max_pin='x.x') }}
     files:
-      - include/  # [not win]
-      - share/  # [not win]
-      - lib/  # [not win]
+      - include/webp/  # [not win]
+      - share/**/webp*.1  # [not win]
+      - share/**/*webp.1  # [not win]
+      - lib/libwebp*  # [not win]
       - Library/include/webp/ # [win]
       - Library/lib/libwebp* # [win]
       - Library/bin/*webp.exe # [win]
