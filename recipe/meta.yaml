@@ -11,18 +11,18 @@ source:
 build:
   number: 3
 
-outputs:  # [not win]
+outputs:
 
-  - name: libwebp  # [not win]
-    build:  # [not win]
-      run_exports:  # [not win]
-        # https://abi-laboratory.pro/?view=timeline&l=libwebp  # [not win]
-        - {{ pin_subpackage('libwebp-base', max_pin='x.x') }}  # [not win]
+  - name: libwebp
+    build:
+      run_exports:
+        # https://abi-laboratory.pro/?view=timeline&l=libwebp
+        - {{ pin_subpackage('libwebp-base', max_pin='x.x') }}
     files:  # [not win]
       - bin/  # [not win]
-    requirements:  # [not win]
-      run:  # [not win]
-        - {{ pin_subpackage('libwebp-base', exact=True) }}  # [not win]
+    requirements:
+      run:
+        - {{ pin_subpackage('libwebp-base', exact=True) }}
     test:
       source_files:
         - examples/test.webp
@@ -32,14 +32,14 @@ outputs:  # [not win]
         - dwebp examples/test.webp  # [not win]
         - dwebp examples\\test.webp  # [win]
 
-  - name: libwebp-base  # [not win]
-    build:  # [not win]
-      run_exports:  # [not win]
-        # https://abi-laboratory.pro/?view=timeline&l=libwebp  # [not win]
-        - {{ pin_subpackage('libwebp-base', max_pin='x.x') }}  # [not win]
-    requirements:  # [not win]
-      build:  # [not win]
-        - {{ compiler('c') }}  # [not win]
+  - name: libwebp-base
+    build:
+      run_exports:
+        # https://abi-laboratory.pro/?view=timeline&l=libwebp
+        - {{ pin_subpackage('libwebp-base', max_pin='x.x') }}
+    requirements:
+      build:
+        - {{ compiler('c') }}
         - make  # [not win]
       host:  # [not win]
         - jpeg  # [not win]
@@ -47,14 +47,14 @@ outputs:  # [not win]
         # 4.1 is when libtiff added a dependency on libwebp creating a circular dependency
         - libtiff !=4.1  # [not win]
         - giflib  # [not win]
-      run_constrained:  # [not win]
-        - {{ pin_subpackage('libwebp', min_pin='x.x', max_pin='x.x') }}  # [not win]
+      run_constrained:
+        - {{ pin_subpackage('libwebp', min_pin='x.x', max_pin='x.x') }}
     files:  # [not win]
       - include/  # [not win]
       - share/  # [not win]
       - lib/  # [not win]
-    test:  # [not win]
-      commands:  # [not win]
+    test:
+      commands:
         - test -f $PREFIX/lib/libwebp.a  # [not win]
         - test -f $PREFIX/lib/libwebp{{ SHLIB_EXT }}  # [not win]
         - test -f $PREFIX/include/webp/decode.h  # [not win]
