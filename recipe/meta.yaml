@@ -61,10 +61,14 @@ outputs:
         - giflib  # [not win]
       run_constrained:
         - {{ pin_subpackage('libwebp', min_pin='x.x', max_pin='x.x') }}
-    files:  # [not win]
+    files:
       - include/  # [not win]
       - share/  # [not win]
       - lib/  # [not win]
+      - Library/include/webp/ # [win]
+      - Library/lib/libwebp* # [win]
+      - Library/bin/*webp.exe # [win]
+      - Library/bin/libwebp* # [win]
     test:
       commands:
         - test -f $PREFIX/lib/libwebp.a  # [not win]
