@@ -35,6 +35,12 @@ outputs:
     files:  # [not win]
       - bin/*webp  # [not win]
     requirements:
+      host:
+        - {{ compiler('c') }}
+        - jpeg  # [not win]
+        - libpng  # [not win]
+        - libtiff !=4.1  # [not win]
+        - giflib  # [not win]
       run:
         - {{ pin_subpackage('libwebp-base', exact=True) }}
     test:
@@ -54,11 +60,6 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
-      host:  # [not win]
-        - jpeg  # [not win]
-        - libpng  # [not win]
-        - libtiff !=4.1  # [not win]
-        - giflib  # [not win]
       run_constrained:
         - {{ pin_subpackage('libwebp', min_pin='x.x', max_pin='x.x') }}
     files:
