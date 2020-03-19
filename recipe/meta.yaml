@@ -18,11 +18,10 @@ requirements:
   build:
     - {{ compiler('c') }}
     - make  # [not win]
+    - libtiff  # [not win]
   host:
     - jpeg  # [not win]
     - libpng  # [not win]
-    # 4.1 is when libtiff added a dependency on libwebp creating a circular dependency
-    - libtiff !=4.1  # [not win]
     - giflib  # [not win]
 
 outputs:
@@ -35,14 +34,14 @@ outputs:
     files:  # [not win]
       - bin/*webp  # [not win]
     requirements:
-      host:
+      build:
         - {{ compiler('c') }}
+      run:
         - jpeg  # [not win]
         - libpng  # [not win]
-        - libtiff !=4.1  # [not win]
+        - libtiff  # [not win]
         - giflib  # [not win]
-      run:
-        - {{ pin_subpackage('libwebp-base', exact=True) }}
+        - {{ pin_subpackage('libwebp-base', max_pin='x.x') }}
     test:
       source_files:
         - examples/test.webp

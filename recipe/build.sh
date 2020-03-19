@@ -6,7 +6,7 @@
 ./configure --prefix=${PREFIX} --disable-gl --disable-dependency-tracking \
 	--enable-libwebpmux --enable-libwebpdemux --enable-libwebpdecoder \
 	--with-jpeglibdir=${PREFIX}/lib --with-jpegincludedir=${PREFIX}/include \
-	--with-tifflibdir=${PREFIX}/lib --with-tiffincludedir=${PREFIX}/include \
+	--with-tifflibdir=${PREFIX}/../_build_env/lib --with-tiffincludedir=${PREFIX}/../_build_env/include \
 	--with-giflibdir=${PREFIX}/lib --with-gifincludedir=${PREFIX}/include
 make 
 make check
