@@ -91,7 +91,7 @@ outputs:
 
 about:
   home: https://developers.google.com/speed/webp
-  license: Google
+  license: BSD-3-Clause
   license_file: COPYING
   summary: "WebP image library"
   description: |
