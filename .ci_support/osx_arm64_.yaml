@@ -1,13 +1,13 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
 c_compiler:
-- gcc
+- clang
 c_compiler_version:
-- '7'
+- '11'
 channel_sources:
-- conda-forge,defaults
+- conda-forge/label/rust_dev,conda-forge,https://conda-web.anaconda.org/conda-forge
 channel_targets:
 - conda-forge main
-docker_image:
-- condaforge/linux-anvil-comp7
 giflib:
 - '5.2'
 jpeg:
@@ -16,6 +16,8 @@ libpng:
 - '1.6'
 libtiff:
 - 4.1.0
+macos_machine:
+- arm64-apple-darwin20.0.0
 pin_run_as_build:
   jpeg:
     max_pin: x
@@ -23,3 +25,5 @@ pin_run_as_build:
     max_pin: x.x
   libtiff:
     max_pin: x
+target_platform:
+- osx-arm64
