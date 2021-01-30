@@ -1,4 +1,4 @@
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 package:
   name: libwebp
@@ -6,10 +6,10 @@ package:
 
 source:
   url: http://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-{{ version }}.tar.gz
-  sha256: 98a052268cc4d5ece27f76572a7f50293f439c17a98e67c4ea0c7ed6f50ef043
+  sha256: 2fc8bbde9f97f2ab403c0224fb9ca62b2e6852cbc519e91ceaa7c153ffd88a0c
 
 build:
-  number: 4
+  number: 0
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libwebp
     - {{ pin_compatible('libwebp-base') }}
@@ -47,7 +47,7 @@ about:
   home: https://developers.google.com/speed/webp
   license: BSD-3-Clause
   license_file: COPYING
-  summary: "WebP image library"
+  summary: WebP image library
   description: |
     WebP is a method of lossy and lossless compression that can be used on a large variety of photographic,
     translucent and graphical images found on the web. The degree of lossy compression is adjustable so a
