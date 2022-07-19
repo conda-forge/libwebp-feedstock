@@ -9,10 +9,12 @@ source:
   sha256: 7656532f837af5f4cec3ff6bafe552c044dc39bf453587bd5b77450802f4aee6
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libwebp
     - {{ pin_compatible('libwebp-base') }}
+    # autotools to CMake ABI break
+    - libwebp-base <1.2.3
 
 requirements:
   build:
