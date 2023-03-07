@@ -9,7 +9,7 @@ source:
   sha256: 7bf5a8a28cc69bcfa8cb214f2c3095703c6b73ac5fba4d5480c205331d9494df
 
 build:
-  number: 2
+  number: 3
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=libwebp
     - {{ pin_compatible('libwebp-base') }}
